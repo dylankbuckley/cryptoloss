@@ -13,7 +13,7 @@ app.get('/:currency/:boughtCurrency/:boughtAmount', function (request, response)
     "method": "GET",
     "hostname": "min-api.cryptocompare.com",
     "port": null,
-    "path": "/data/price?fsym=ETH&tsyms="+request.params.currency+"%2C"+request.params.boughtCurrency,
+    "path": "/data/price?fsym="+request.params.currency+"&tsyms="+request.params.currency+"%2C"+request.params.boughtCurrency,
     "headers": {
       "cache-control": "no-cache",
       "postman-token": "dd83f174-bf6f-1399-7243-0bf8072b25e4"
