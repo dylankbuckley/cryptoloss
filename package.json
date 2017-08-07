@@ -1,0 +1,19 @@
+{
+  "name": "cryptoloss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylankbuckley/cryptoloss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylankbuckley/cryptoloss/issues"
+  },
+  "homepage": "https://github.com/dylankbuckley/cryptoloss#readme"
+}
