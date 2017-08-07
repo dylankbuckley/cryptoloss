@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 
+
+app.set('view engine', 'pug')
+
 app.get('/:currency/:boughtCurrency/:boughtAmount', function (request, response) {
 
 
@@ -33,9 +36,11 @@ app.get('/:currency/:boughtCurrency/:boughtAmount', function (request, response)
       var difference = parseFloat(arr[1]) - parseFloat(request.params.boughtAmount)
 
       if (difference < 0) {
-        response.send("You have lost " + request.params.boughtCurrency + " " + Math.abs(parseInt(difference)) + " on your " + request.params.currency + " investment")
+        var message = "You have lost " + request.params.boughtCurrency + " " + Math.abs(parseInt(difference)) + " on your " + request.params.currency + " investment"
+        response.render('index', {title: "-"+Math.abs(parseInt(difference))+ " " + request.params.boughtCurrency, message: message})
       } else {
-        response.send("You have profited " + request.params.boughtCurrency + " " + Math.abs(parseInt(difference)) + " on your " + request.params.currency + " investment")
+        var message = "You have profited " + request.params.boughtCurrency + " " + Math.abs(parseInt(difference)) + " on your " + request.params.currency + " investment"
+        response.render('index', {title: Math.abs(parseInt(difference))+ " " + request.params.boughtCurrency, message: message})
 
       }
 
@@ -46,6 +51,6 @@ app.get('/:currency/:boughtCurrency/:boughtAmount', function (request, response)
 
 })
 
-app.listen(process.env.PORT, function () {
+app.listen(process.env.PORT || 4000, function () {
   console.log('Example app listening on port 3000!')
 })
